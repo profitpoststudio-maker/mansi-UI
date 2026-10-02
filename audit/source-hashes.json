@@ -1,0 +1,74 @@
+[
+  {
+    "Path": "medlens\\index.html",
+    "Hash": "96ADB5DA17C3CCE3B248AFCAF49F74564ED50C9576CEDB9721A9B94EBBDF7E74"
+  },
+  {
+    "Path": "medlens\\css\\styles.css",
+    "Hash": "A98BB8E11F50FA9DCCD1F9213D4482BA1C63A2DAE53B7171D77C04B31E9DADD6"
+  },
+  {
+    "Path": "medlens\\js\\app.js",
+    "Hash": "4C2CE5FFEAB276F78AD10AC6E706F204F06B38ACBCD119187BD8536063C98BFA"
+  },
+  {
+    "Path": "medlens\\js\\bundle.js",
+    "Hash": "8A48E7FBACE23774351CDDB2095D7E8BE0ABC45B1DE7A80E3CEF93FB62999700"
+  },
+  {
+    "Path": "medlens\\js\\lucide.min.js",
+    "Hash": "EB4342C34978610C31BE4DB4D140BBA2880EC58959A4FC9496294276B1A728BE"
+  },
+  {
+    "Path": "medlens\\js\\components\\analysisPlaceholder.js",
+    "Hash": "A96BA39166B7445F738495C5C45E21805AF2889B19FE1FC3193FB98BF2D03159"
+  },
+  {
+    "Path": "medlens\\js\\components\\auth.js",
+    "Hash": "D7FE36E4A8680337B196C31AC2E2998B38FE37B082D8798F20261BA0A99A54CC"
+  },
+  {
+    "Path": "medlens\\js\\components\\dashboard.js",
+    "Hash": "A1D5C5E0832F51C58ACABE0C147191A8825D2098AFDE8FEBA1AEF8E3D5A51807"
+  },
+  {
+    "Path": "medlens\\js\\components\\dashboardHome.js",
+    "Hash": "9FEA5911A323EDD9C8D854C71A0F9D4D292D0DAEEDCCB95FDB701C9AAFF820C3"
+  },
+  {
+    "Path": "medlens\\js\\components\\history.js",
+    "Hash": "1C8199BD2D300A8ED0D80FF24F2E1F917FC90A072D5FEDCAE3E3C02D1229374A"
+  },
+  {
+    "Path": "medlens\\js\\components\\home.js",
+    "Hash": "147198A4FBB24E0163E37EB51F528D81F89C1D1F09C596C612DB837F2BB90582"
+  },
+  {
+    "Path": "medlens\\js\\components\\landing.js",
+    "Hash": "AD8D1F2D559D9316A977D814234054186F92A7E0B4257DDDCD4D06DC92D91B95"
+  },
+  {
+    "Path": "medlens\\js\\components\\modals.js",
+    "Hash": "EC7729A60A4F0E159936000CC3C96DF08813090DCDDC0A3F9469D09952B7C3AF"
+  },
+  {
+    "Path": "medlens\\js\\components\\navbar.js",
+    "Hash": "20CC23337DEC551B084EBBD1AD0E079384B99B0F6E1DC7B0A2DDEFD5854FF26A"
+  },
+  {
+    "Path": "medlens\\js\\components\\onboarding.js",
+    "Hash": "91C4519D7BC7CE8C2529AC410C7172DFB781F1C4CD9E042373896D238CD66805"
+  },
+  {
+    "Path": "medlens\\js\\components\\profile.js",
+    "Hash": "299B81F95A25F2889A2E0AE3E2DDBDF0735157F6F7629BD0315B220FECC922D0"
+  },
+  {
+    "Path": "medlens\\js\\components\\reports.js",
+    "Hash": "E791EF25C8E49706A9FDCE4848C2C34D4B038DB3A593541FD56C4A6E99BD599E"
+  },
+  {
+    "Path": "medlens\\js\\data\\mockData.js",
+    "Hash": "CBC528D0C8E03CECEAD891025FBACAD0302AE776B2989EB7366D3D759A8191A6"
+  }
+]

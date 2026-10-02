@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-02",
+  "originalApplicationFiles": 18,
+  "changedApplicationFiles": [],
+  "originalJavaScriptFilesParsed": 16,
+  "syntaxFailures": [],
+  "expectedDefectsReproduced": 29,
+  "totalReproductions": 29,
+  "bundleSha256": "8a48e7fbace23774351cddb2095d7e8be0abc45b1de7a80e3cef93fb62999700",
+  "projectTestSuite": "Not supplied",
+  "dependencyCveAudit": "Not performed; no package manifest/lockfile supplied",
+  "browserObservations": "audit/browser-observations.json"
+}

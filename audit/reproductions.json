@@ -1,0 +1,314 @@
+{
+  "bundleSha256": "8a48e7fbace23774351cddb2095d7e8be0abc45b1de7a80e3cef93fb62999700",
+  "method": "Isolated VM against shipped bundle, minimal DOM stub, synthetic in-memory storage, no network",
+  "reproduced": 29,
+  "total": 29,
+  "results": [
+    {
+      "id": "R01",
+      "title": "The actual login form ignores passwords",
+      "reproduced": true,
+      "evidence": {
+        "password": "x",
+        "authenticated": true,
+        "route": "dashboard"
+      }
+    },
+    {
+      "id": "R02",
+      "title": "A browser storage flag grants access on startup",
+      "reproduced": true,
+      "evidence": {
+        "seed": {
+          "medlens_auth": "true"
+        },
+        "route": "dashboard"
+      }
+    },
+    {
+      "id": "R03",
+      "title": "Unknown login inherits the previous patient profile",
+      "reproduced": true,
+      "evidence": {
+        "newEmail": "b@example.invalid",
+        "inheritedName": "Patient A",
+        "inheritedPhone": "SYNTHETIC-A",
+        "inheritedAllergies": "SYNTHETIC-ALLERGY",
+        "route": "dashboard"
+      }
+    },
+    {
+      "id": "R04",
+      "title": "Reports are shared across accounts in one browser",
+      "reproduced": true,
+      "evidence": {
+        "secondAccountCanSee": "PATIENT_A_PRIVATE.pdf"
+      }
+    },
+    {
+      "id": "R05",
+      "title": "Logout retains patient details, users database and reports",
+      "reproduced": true,
+      "evidence": {
+        "remainingKeys": [
+          "medlens_users_db",
+          "medlens_profile_completed",
+          "medlens_user",
+          "medlens_reports"
+        ]
+      }
+    },
+    {
+      "id": "R06",
+      "title": "Signing up again with the same email overwrites that account",
+      "reproduced": true,
+      "evidence": {
+        "replacementName": "Replacement",
+        "lostAllergies": ""
+      }
+    },
+    {
+      "id": "R07",
+      "title": "Editing email can overwrite a different local account",
+      "reproduced": true,
+      "evidence": {
+        "overwrittenAccount": "b@example.invalid",
+        "overwrittenWithName": "Patient A"
+      }
+    },
+    {
+      "id": "R08",
+      "title": "Unescaped profile markup reaches innerHTML",
+      "reproduced": true,
+      "evidence": {
+        "profileMarkupUnescaped": true,
+        "formAttributeBreakout": true,
+        "limitation": "DOM stub checks sink contents; browser execution is verified separately."
+      }
+    },
+    {
+      "id": "R09",
+      "title": "Shipped signup accepts mismatched confirmation and unchecked terms",
+      "reproduced": true,
+      "evidence": {
+        "authenticated": true,
+        "confirmPasswordIgnored": true,
+        "termsIgnored": true,
+        "limitation": "Browser still enforces required input/email syntax before native submit."
+      }
+    },
+    {
+      "id": "R10",
+      "title": "Modal upload discards file content and invents its size",
+      "reproduced": true,
+      "evidence": {
+        "actualSize": 23068672,
+        "storedSize": "2.2 MB",
+        "storedFields": [
+          "fileName",
+          "name",
+          "reportType",
+          "fileSize",
+          "uploadDate",
+          "date",
+          "status",
+          "badgeClass",
+          "id"
+        ],
+        "invalidTypeAccepted": true
+      }
+    },
+    {
+      "id": "R11",
+      "title": "Opening an unrelated uploaded report shows sample CBC values",
+      "reproduced": true,
+      "evidence": {
+        "displayedValue": "13.2 g/dL",
+        "analyzedBadge": true,
+        "actualFileNameAbsent": true
+      }
+    },
+    {
+      "id": "R12",
+      "title": "Malformed stored reports stop application construction",
+      "reproduced": true,
+      "evidence": {
+        "crash": "Uncaught JSON parse error before app initialization"
+      }
+    },
+    {
+      "id": "R13",
+      "title": "Valid JSON of the wrong shape crashes rendering",
+      "reproduced": true,
+      "evidence": {
+        "crash": "reportsList.filter is not a function"
+      }
+    },
+    {
+      "id": "R14",
+      "title": "Storage unavailability stops startup",
+      "reproduced": true,
+      "evidence": {
+        "crash": "Uncaught storage access error"
+      }
+    },
+    {
+      "id": "R15",
+      "title": "Failed report persistence leaves memory changed and storage unchanged",
+      "reproduced": true,
+      "evidence": {
+        "inMemoryCount": 5,
+        "priorCount": 4,
+        "persisted": false
+      }
+    },
+    {
+      "id": "R16",
+      "title": "An empty locker displays 12 total reports",
+      "reproduced": true,
+      "evidence": {
+        "actualReports": 0,
+        "displayedTotal": 12
+      }
+    },
+    {
+      "id": "R17",
+      "title": "Report IDs collide within one millisecond",
+      "reproduced": true,
+      "evidence": {
+        "duplicateId": "rep-123456789",
+        "oneDeleteRemovesBoth": true
+      }
+    },
+    {
+      "id": "R18",
+      "title": "Hidden modal HTML survives closing",
+      "reproduced": true,
+      "evidence": {
+        "hiddenContentRetained": true,
+        "note": "Actual browser keyboard focus verified separately."
+      }
+    },
+    {
+      "id": "R19",
+      "title": "Landing navbar registers a new scroll listener and observer on every render",
+      "reproduced": true,
+      "evidence": {
+        "renders": 2,
+        "scrollListeners": 2,
+        "undisconnectedObservers": 2
+      }
+    },
+    {
+      "id": "R20",
+      "title": "CBC summary counts disagree with the available rows",
+      "reproduced": true,
+      "evidence": {
+        "summaryTotal": 12,
+        "visibleRows": 4,
+        "summaryReview": 2,
+        "visibleReview": 0
+      }
+    },
+    {
+      "id": "R21",
+      "title": "Uploading never updates analysis history",
+      "reproduced": true,
+      "evidence": {
+        "historyUnchanged": true,
+        "historyPersistenceWritten": false
+      }
+    },
+    {
+      "id": "R22",
+      "title": "Copy link announces success without a clipboard API",
+      "reproduced": true,
+      "evidence": {
+        "clipboardAvailable": false,
+        "successToast": "✓ Share link copied to clipboard!"
+      }
+    },
+    {
+      "id": "R23",
+      "title": "Password toggle destroys typed form values",
+      "reproduced": true,
+      "evidence": {
+        "emailAfterToggle": "",
+        "passwordAfterToggle": ""
+      }
+    },
+    {
+      "id": "R24",
+      "title": "Delayed upload can re-render the dashboard after logout",
+      "reproduced": true,
+      "evidence": {
+        "authenticated": false,
+        "routeState": "auth",
+        "displayedPage": "dashboard",
+        "uploadedAfterLogout": "delayed.pdf"
+      }
+    },
+    {
+      "id": "R25",
+      "title": "Two open tabs overwrite each other's report changes",
+      "reproduced": true,
+      "evidence": {
+        "persistedFiles": [
+          "from_tab_B.pdf"
+        ],
+        "lostFile": "from_tab_A.pdf"
+      }
+    },
+    {
+      "id": "R26",
+      "title": "State-changing methods and modals have no authentication checks",
+      "reproduced": true,
+      "evidence": {
+        "authenticated": false,
+        "profileChanged": true,
+        "reportAdded": true,
+        "profileModalAccessible": true,
+        "scope": "Requires same-origin JavaScript/local access; not evidence of a remote backend exploit."
+      }
+    },
+    {
+      "id": "R27",
+      "title": "The modular app engine never renders its initial landing page",
+      "reproduced": true,
+      "evidence": {
+        "sourceInitialRenders": 0,
+        "shippedInitialRenders": 1,
+        "scope": "app.js is not currently loaded by index.html; this blocks adopting it without repair."
+      }
+    },
+    {
+      "id": "R28",
+      "title": "Navigating to landing leaves the dashboard URL hash behind",
+      "reproduced": true,
+      "evidence": {
+        "displayedPage": "landing",
+        "urlHash": "dashboard"
+      }
+    },
+    {
+      "id": "R29",
+      "title": "Ten demo parameter explanation codes have no content",
+      "reproduced": true,
+      "evidence": {
+        "parameters": 16,
+        "missingExplanationCodes": [
+          "plt",
+          "rbc",
+          "ppg",
+          "insulin",
+          "ast",
+          "bili",
+          "alp",
+          "bun",
+          "egfr",
+          "sodium"
+        ]
+      }
+    }
+  ]
+}

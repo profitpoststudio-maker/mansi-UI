@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-02",
+  "target": "http://127.0.0.1:8765/",
+  "method": "Codex browser interaction, rendered DOM inspection and screenshots",
+  "data": "Synthetic email, default mock patient and agent-created invalid PDF; no actual patient data supplied",
+  "observations": [
+    {"id":"B01","finding":"Login accepts an unknown email with a one-character password","email":"medlens-audit@example.invalid","password":"x","result":"Dashboard opens with Anshika Sharma's mock demographics and the entered email"},
+    {"id":"B02","finding":"Stored DOM XSS executes and survives reload","input":"<img src=x onerror=\"document.body.dataset.medlensAudit='executed'\">","field":"Profile full name","result":"document.body.dataset.medlensAudit was executed immediately and after page reload","cleanup":"Profile full name restored to its original mock value"},
+    {"id":"B03","finding":"Invalid PDF containing no medical parameters displays sample CBC results","fixture":"audit/fixtures/unrelated_scan.pdf","result":"Uploaded label, fabricated 2.4 MB size, then CBC dated 28 Aug 2026 with Analyzed badge and hemoglobin 13.2 g/dL","screenshot":"audit/evidence/unrelated-file-shows-cbc.jpg"},
+    {"id":"B04","finding":"Search loses focus after one input update","input":"b","result":{"searchValue":"b","activeElement":"BODY","activeId":""}},
+    {"id":"B05","finding":"Closing a modal leaves invisible keyboard targets","action":"Close report details; focus last visible report delete button; press Tab","result":{"activeTag":"BUTTON","activeClass":"modal-close-btn","focusInClosedModal":true,"modalOpacity":"0"}},
+    {"id":"B06","finding":"Reports has no usable persistent desktop route navigation","requestedViewport":"1440x900","result":{"clientWidth":1440,"scrollWidth":1440,"sidebarPresent":false,"bottomNavDisplay":"none"},"screenshot":"audit/evidence/desktop-reports-navigation.jpg"},
+    {"id":"B07","finding":"Mobile report badges overflow horizontally","requestedViewport":"390x844","result":{"clientWidth":375,"scrollWidth":463,"overflowingBadgeRightEdges":[415,424,453,463]},"screenshot":"audit/evidence/mobile-reports.jpg"},
+    {"id":"B08","finding":"Mobile edit-profile form retains cramped three-column fields","requestedViewport":"390x844","result":{"dateOfBirthWidth":81,"genderWidth":81,"bloodGroupWidth":81},"screenshot":"audit/evidence/mobile-edit-profile.jpg"},
+    {"id":"B09","finding":"Platelets View Explanation button does nothing","action":"Click third explanation button in CBC sample","result":{"modalHidden":true,"explanationButtons":4}},
+    {"id":"B10","finding":"Short-laptop sign-in requires vertical scrolling but has no horizontal overflow","requestedViewport":"1366x640","result":{"clientWidth":1351,"scrollWidth":1351,"clientHeight":640,"scrollHeight":732},"screenshot":"audit/evidence/short-laptop-auth.jpg"},
+    {"id":"B11","finding":"Mobile dashboard report actions extend beyond clipped content","requestedViewport":"390x844","result":{"clientWidth":375,"documentScrollWidth":375,"dashboardPanelRightEdge":581,"reportListRightEdge":554,"firstViewButtonRightEdge":436},"screenshot":"audit/evidence/mobile-dashboard.jpg","note":"The document width alone does not detect this because a parent clips overflowing descendants; the initial viewport screenshot covers the top of the dashboard."},
+    {"id":"B12","finding":"Default mobile profile has no horizontal overflow","requestedViewport":"390x844","result":{"clientWidth":375,"scrollWidth":375},"screenshot":"audit/evidence/mobile-profile.jpg"}
+  ],
+  "notes": ["A 15px scrollbar explains clientWidth=375 for some 390px viewports.", "Temporary viewport overrides were reset.", "Live JavaScript execution was limited to a harmless DOM marker; no data was exfiltrated."]
+}
